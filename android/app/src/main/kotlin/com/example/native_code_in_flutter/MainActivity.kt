@@ -62,7 +62,7 @@ class MainActivity: FlutterActivity() {
         })
 
 //        native ui regarding code
-        flutterEngine.platformViewsController.registry.registerViewFactory("hybrid-view-type",NativeWidgetFactory())
+        flutterEngine.platformViewsController.registry.registerViewFactory("hybrid-view-type",NativeWidgetFactory(flutterEngine.dartExecutor.binaryMessenger))
     }
 
 }
