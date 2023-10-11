@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:native_code_in_flutter/Screens/CounterUsingEventChannel.dart';
 import 'package:native_code_in_flutter/Screens/RenderedTextViewUisngPlatfromView.dart';
+import 'package:native_code_in_flutter/Screens/VideoPlayerUsingPlarformView.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -65,6 +66,16 @@ class _HomeScreen extends State<HomeScreen> {
                   },
                   child: const Text('hybrid composition platform view example',
                       style: TextStyle(fontSize: 20))),
+              InkWell(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context) {
+                        return const VideoPlayerUsingPlatformView();
+                      },
+                    ));
+                  },
+                  child: const Text('hybrid composition video player',
+                      style: TextStyle(fontSize: 20)))
             ],
           ),
         ));

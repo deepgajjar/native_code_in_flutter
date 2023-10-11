@@ -3,6 +3,7 @@ package com.example.native_code_in_flutter
 import android.os.Handler
 import android.os.Looper
 import android.widget.Toast
+import com.example.native_code_in_flutter.videoPlayer.VideoWidgetFactory
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.EventChannel
@@ -63,6 +64,8 @@ class MainActivity: FlutterActivity() {
 
 //        native ui regarding code
         flutterEngine.platformViewsController.registry.registerViewFactory("hybrid-view-type",NativeWidgetFactory(flutterEngine.dartExecutor.binaryMessenger))
+//        vide player
+        flutterEngine.platformViewsController.registry.registerViewFactory("video_player_kotlin",VideoWidgetFactory(flutterEngine.dartExecutor.binaryMessenger))
     }
 
 }

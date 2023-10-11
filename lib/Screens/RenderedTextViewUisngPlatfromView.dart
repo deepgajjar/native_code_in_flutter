@@ -36,8 +36,6 @@ class _RenderedTextViewUsingPlatformView extends State<RenderedTextViewUsingPlat
     super.initState();
 
   }
-
-
   final Map<String, dynamic> creationParams = <String, dynamic>{
     "name":"deep gajjar",
     "age":25,
