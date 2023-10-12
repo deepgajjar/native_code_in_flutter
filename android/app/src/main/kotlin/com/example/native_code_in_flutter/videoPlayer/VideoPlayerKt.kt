@@ -5,11 +5,16 @@ import android.net.Uri
 import android.widget.MediaController
 import android.widget.VideoView
 import io.flutter.plugin.common.BinaryMessenger
+import io.flutter.plugin.common.MethodCall
+import io.flutter.plugin.common.MethodChannel
+import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 
-class VideoPlayerKt(context:Context,creationParams: Map<String?, Any?>?,messenger: BinaryMessenger) :VideoView(context) {
+class VideoPlayerKt(context:Context,creationParams: Map<String?, Any?>?,messenger: BinaryMessenger) :VideoView(context),MethodCallHandler {
     private val videoView = this
     private var autoPlay = true
     private var paused = false
+
+    private val videoPlayerChannel : MethodChannel = MethodChannel(messenger,"videoPlayerChannel")
 
     init {
 //        reactContext = context as ReactContext
@@ -50,7 +55,6 @@ class VideoPlayerKt(context:Context,creationParams: Map<String?, Any?>?,messenge
 
         videoView.setOnPreparedListener { mp ->
             onVideoLoaded()
-
             if (autoPlay) {
                 videoView.start()
             }
@@ -60,10 +64,15 @@ class VideoPlayerKt(context:Context,creationParams: Map<String?, Any?>?,messenge
 
 
     private fun onVideoCompleted() {
-//        mEventDispatcher.dispatchEvent(CompletedEventKT(UIManagerHelper.getSurfaceId(reactContext), getId()))
+        videoPlayerChannel.invokeMethod("onVideoEnd","")
     }
 
     private fun onVideoLoaded() {
-//        mEventDispatcher.dispatchEvent(LoadedEventKT(UIManagerHelper.getSurfaceId(reactContext), getId()))
+        videoPlayerChannel.invokeMethod("onVideoLoad","")
+
+    }
+
+    override fun onMethodCall(call: MethodCall, result: MethodChannel.Result) {
+        TODO("Not yet implemented")
     }
 }
