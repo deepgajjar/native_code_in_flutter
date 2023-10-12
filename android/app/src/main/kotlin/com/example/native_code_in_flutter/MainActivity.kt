@@ -3,6 +3,7 @@ package com.example.native_code_in_flutter
 import android.os.Handler
 import android.os.Looper
 import android.widget.Toast
+import com.example.native_code_in_flutter.callingXmlLayout.CallingXmlLayoutFactory
 import com.example.native_code_in_flutter.videoPlayer.VideoWidgetFactory
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
@@ -66,6 +67,8 @@ class MainActivity: FlutterActivity() {
         flutterEngine.platformViewsController.registry.registerViewFactory("hybrid-view-type",NativeWidgetFactory(flutterEngine.dartExecutor.binaryMessenger))
 //        vide player
         flutterEngine.platformViewsController.registry.registerViewFactory("video_player_kotlin",VideoWidgetFactory(flutterEngine.dartExecutor.binaryMessenger))
+//        calling xml layout for flutter
+        flutterEngine.platformViewsController.registry.registerViewFactory("xml_layout_for_flutter",CallingXmlLayoutFactory())
     }
 
 }

@@ -4,6 +4,8 @@ import 'package:native_code_in_flutter/Screens/CounterUsingEventChannel.dart';
 import 'package:native_code_in_flutter/Screens/RenderedTextViewUisngPlatfromView.dart';
 import 'package:native_code_in_flutter/Screens/VideoPlayerUsingPlarformView.dart';
 
+import 'CallingXmlLayouInFlutter.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
   @override
@@ -66,6 +68,7 @@ class _HomeScreen extends State<HomeScreen> {
                   },
                   child: const Text('hybrid composition platform view example',
                       style: TextStyle(fontSize: 20))),
+              const SizedBox(height: 10),
               InkWell(
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute(
@@ -75,6 +78,17 @@ class _HomeScreen extends State<HomeScreen> {
                     ));
                   },
                   child: const Text('hybrid composition video player',
+                      style: TextStyle(fontSize: 20))),
+              const SizedBox(height: 10),
+              InkWell(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context) {
+                        return const CallingXmlLayoutInFlutter();
+                      },
+                    ));
+                  },
+                  child: const Text('Rendered XML Layout using PlatformViews',
                       style: TextStyle(fontSize: 20)))
             ],
           ),
