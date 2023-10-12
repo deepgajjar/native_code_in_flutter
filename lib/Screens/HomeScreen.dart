@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:native_code_in_flutter/Screens/CounterUsingEventChannel.dart';
+import 'package:native_code_in_flutter/Screens/FlutterVideoPlayerPluginExample.dart';
 import 'package:native_code_in_flutter/Screens/RenderedTextViewUisngPlatfromView.dart';
 import 'package:native_code_in_flutter/Screens/VideoPlayerUsingPlarformView.dart';
 
@@ -89,6 +90,17 @@ class _HomeScreen extends State<HomeScreen> {
                     ));
                   },
                   child: const Text('Rendered XML Layout using PlatformViews',
+                      style: TextStyle(fontSize: 20))),
+              const SizedBox(height: 10),
+              InkWell(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context) {
+                        return  const FlutterVideoPlayerPluginExample();
+                      },
+                    ));
+                  },
+                  child: const Text('Flutter plugin example',
                       style: TextStyle(fontSize: 20)))
             ],
           ),
